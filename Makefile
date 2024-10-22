@@ -12,3 +12,9 @@ init:
 	@docker compose exec llm02 /bin/bash /root/gihyo-langchain-search/setup-llm.sh
 	## init web repo
 	@docker compose exec llm02 /bin/bash /root/gihyo-langchain-search/setup-web.sh
+
+.PHONY: docker-up
+docker-up:
+	@docker compose up -d --build llm02
+	## init api repo
+	@docker compose exec llm02 /bin/bash /root/gihyo-langchain-search/setup-llm.sh
